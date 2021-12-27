@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 from typing import DefaultDict
 from decouple import config, Csv
@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEGUB',default=False,  cast=bool)
 #'django-insecure-e7kda(cfun=t)009k&n34@5mdir=$8#+8x))6q$ufywdu^xq26'
-ALLOWED_HOSTS = config('ALLOWED_HOSTS',default=[],cast=Csv)
+ALLOWED_HOSTS = config('ALLOWED_HOSTS',default=[],cast=Csv())
 
 
 # Application definition
@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #my apps
+    'projeto.core',
+    'projeto.produto',
 ]
 
 MIDDLEWARE = [
